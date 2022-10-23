@@ -4,6 +4,9 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 # 用于中文分词
 import jieba
+# 归一化处理和标准化处理
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+import numpy as np
 
 
 def dictvec():
@@ -100,8 +103,32 @@ def tfidfvec():
     return None
 
 
+def mm():
+    '''
+    归一化处理
+    :return: None
+    '''
+    m = MinMaxScaler(feature_range=(2, 3))  # 缩放到每个特征的值都在2--3之间
+    data = m.fit_transform([[90, 2, 10, 40], [60, 4, 15, 45], [75, 3, 13, 46]])
+    print(data)
+    return None
+
+
+def stand():
+    '''
+    标准化缩放
+    :return: None
+    '''
+    std = StandardScaler()
+    data = std.fit_transform([[1., -1., 3.], [2., 4., 2.], [4., 6., -1.]])
+    print( data )
+    return None
+
+
 if __name__ == '__main__':
     # dictvec()
     # countvec()
     # hanzivec()
-    tfidfvec()
+    # tfidfvec()
+    # mm()
+    stand()
