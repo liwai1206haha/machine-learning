@@ -6,6 +6,11 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import jieba
 # 归一化处理和标准化处理
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.impute import SimpleImputer
+# 特征选择
+from sklearn.feature_selection import VarianceThreshold
+# 主成分分析
+from sklearn.decomposition import PCA
 import numpy as np
 
 
@@ -121,7 +126,53 @@ def stand():
     '''
     std = StandardScaler()
     data = std.fit_transform([[1., -1., 3.], [2., 4., 2.], [4., 6., -1.]])
-    print( data )
+    print(data)
+    return None
+
+
+def im():
+    '''
+    缺失值处理
+    :return:  None
+    '''
+    im = SimpleImputer(missing_values=np.nan, strategy='mean')  # 使用平均值填充nan值
+    data = im.fit_transform([[1, 2], [np.nan, 3], [7, 6]])
+    print(data)
+    return None
+
+
+def var():
+    '''
+    特征选择 -- 删除低方差的特征
+    :return:
+    '''
+    var = VarianceThreshold(threshold=0.0)
+    data = var.fit_transform([
+        [0, 2, 0, 3],
+        [0, 1, 4, 3],
+        [0, 1, 1, 3]
+    ])
+    '''
+    [[2 0]
+     [1 4]
+     [1 1]]
+    '''
+    print(data)
+    return None
+
+
+def pca():
+    '''
+    主成分分析进行特征降维
+    :return:  None
+    '''
+    pca = PCA(n_components=0.9)
+    data = pca.fit_transform([
+        [2, 8, 4, 5],
+        [6, 3, 0, 8],
+        [5, 4, 9, 1],
+    ])
+    print(data)
     return None
 
 
@@ -131,4 +182,7 @@ if __name__ == '__main__':
     # hanzivec()
     # tfidfvec()
     # mm()
-    stand()
+    # stand()
+    # im()
+    # var()
+    pca()
