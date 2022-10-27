@@ -102,34 +102,34 @@ fit_transform() = fit() + transform()
 ## 线性回归算法，需要进行标准化
 1. 目标值连续
 2. 线性关系模型
-![img.png](线性关系模型.png)
+![img.png](img/线性关系模型.png)
    
 3. 线性回归
-![img.png](线性回归.png)
+![img.png](img/线性回归.png)
    
 4. 损失函数
-![img.png](损失函数.png)
+![img.png](img/损失函数.png)
    
 5. 优化方法
     1. 正规方程
-    ![img.png](正规方程.png)
+    ![img.png](img/正规方程.png)
        
     2. 梯度下降
-    ![img.png](梯度下降.png) 
+    ![img.png](img/梯度下降.png) 
        
     3. sklearn中线性回归的API
-    ![img.png](api.png)
+    ![img.png](img/api.png)
        
     4. 回归性能评估
-    ![img.png](回归性能.png)
+    ![img.png](img/回归性能.png)
        
 ## 过拟合与欠拟合
 1. 欠拟合：特征太少，拟合的不够。可以通过添加特征解决
 2. 过拟合：原始特征过多，存在一些嘈杂特征。可以通过特征选择/交叉验证/正则化解决
 
 ## 岭回归
-![img.png](岭回归.png)
+![img.png](img/岭回归.png)
 
 ## 模型的保存与加载
 import joblib
-![img.png](模型保存与加载.png)
+![img.png](img/模型保存与加载.png)
