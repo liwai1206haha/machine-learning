@@ -23,7 +23,7 @@ fit_transform() = fit() + transform()
 
 ## 归一化
 多个特征同等重要的时候，需要归一化，使得某一个特征不会对结果的影响太大。
-![img.png](img.png)
+![img.png](img/img.png)
 
 ## 标准化
 如果出现异常点，由于具有一定的数据量，少量的异常点对于平均值的影响并不大，从而方差改变较小
@@ -71,7 +71,7 @@ fit_transform() = fit() + transform()
 定义： 如果一个样本在特征空间中的k个最相似（即特征空间中最邻近）的样本中的大多数属于某一个类别，则该样本也属于这个类别。
 
 用于小规模数据，万行内
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 问题：
 1. k值取多大？有什么影响？
@@ -82,10 +82,10 @@ fit_transform() = fit() + transform()
 
 ## 分类算法-朴素贝叶斯算法，不需要调参
 常用于文本分类
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 ### 拉普拉斯平滑
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 
 ## 模型选择与调优
@@ -97,4 +97,4 @@ fit_transform() = fit() + transform()
 
 ## 随机森林
 定义：在机器学习中，随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
