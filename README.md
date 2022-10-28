@@ -133,3 +133,16 @@ fit_transform() = fit() + transform()
 ## 模型的保存与加载
 import joblib
 ![img.png](img/模型保存与加载.png)
+
+## 逻辑回归
+线性回归的式子作为输入，解决二分类的利器，也能得出概率值
+
+
+## 非监督学习
+### k-means（聚类）
+k——把数据划分成多少个类别
+![img.png](img/聚类步骤.png)
+
+
+## tensorflow
+
