@@ -2,10 +2,13 @@
 import joblib
 from sklearn.datasets import load_boston
 # 引入线性回归中的线性回归算法和梯度下降算法
-from sklearn.linear_model import LinearRegression, SGDRegressor,Ridge
+from sklearn.linear_model import LinearRegression, SGDRegressor, Ridge, LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_squared_error  # 均方误差
+# 均方误差
+from sklearn.metrics import mean_squared_error ,classification_report
+import pandas as pd
+import numpy as np
 
 
 def myliner():
@@ -44,7 +47,7 @@ def myliner():
     '''
         保存训练好的模型
     '''
-    joblib.dump( lr, '../tmp/LinearRegression.pkl')
+    joblib.dump(lr, '../tmp/LinearRegression.pkl')
     # 使用保存的模型进行预测
     lr = joblib.load('../tmp/LinearRegression.pkl')
 
@@ -80,5 +83,51 @@ def myliner():
     return None
 
 
+def logistic():
+    """
+    逻辑回归判断是否得癌症
+    :return: None
+    """
+    # 分割数据集
+    column = ['Sample code number',
+              'Clump Thickness',
+              'Uniformity of Cell Size',
+              'Uniformity of Cell Shape',
+              'Marginal Adhesion',
+              'Single Epithelial Cell Size',
+              'Bare Nuclei',
+              'Bland Chromatin',
+              'Normal Nucleoli',
+              'Mitoses',
+              'Class']
+
+    # 读取数据
+    file_path = '../data/cancer/breast-cancer-wisconsin.data'
+    data = pd.read_csv(file_path, names=column)
+    print( data )
+
+    # 替换空参数
+    data = data.replace( to_replace='?', value=np.nan )
+    data = data.dropna()
+
+    x_train, x_test, y_train, y_test = train_test_split(data[column[1:10]], data[column[10]], test_size=0.25)
+
+    # 标准化
+    std = StandardScaler()
+    x_train = std.fit_transform(x_train)
+    x_test = std.transform(x_test)
+
+    # 使用逻辑回归模型进行预测
+    lg = LogisticRegression(C=1.0)
+    # 训练模型
+    lg.fit(x_train, y_train)
+    y_predict = lg.predict( x_test )
+    # 打印回归参数
+    print('回归参数', lg.coef_)
+    print('准确率：', lg.score(x_test, y_test))
+    print( '召回率', classification_report(y_test, y_predict, labels=[2,4] ,target_names=['良性','恶行']))
+
+
 if __name__ == '__main__':
-    myliner()
+    # myliner()
+    logistic()
