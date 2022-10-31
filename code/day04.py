@@ -129,7 +129,7 @@ def myregression():
         sess.run(init_op)
 
         # 打印随机最先初始化的权重和偏置
-        print(f"随机初始化的参数权重为：${weight.eval()}, 偏置为${bias.eval()}")
+        print(f"随机初始化的参数权重为：{weight.eval()}, 偏置为{bias.eval()}")
         file_writer = tf.compat.v1.summary.FileWriter('../tmp/summary/test/', graph=sess.graph)
 
         # 在模型训练之前，加载保存的模型，从上一次训练的结果开始训练
