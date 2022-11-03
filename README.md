@@ -194,3 +194,17 @@ k——把数据划分成多少个类别
         2. softmax计算、交叉熵![img.png](img/softmax和交叉熵.png)
         3. 损失值列表平均值计算![img.png](img/损失值列表平均值计算.png)
         4. 损失下降API![img.png](img/损失下降API.png)
+    
+
+10 .卷积网络
+    1. 卷积网络的API介绍
+    ![img.png](img/卷积网络的API介绍.png)
+    2. 激活函数
+    ![img.png](img/激活函数.png)
+    3. 池化层计算
+    ![img.png](img/池化层计算.png)
+    ![img.png](img/池化层的API.png)
+    4. 全连接层
+    ![img.png](img/全连接层.png)
+    5. 卷积网络实现手写数字识别
+    ![img.png](img/卷积网络实现手写数字识别.png)
